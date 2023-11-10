@@ -1,0 +1,41 @@
+.bank-accounts-container {
+  width: 600px;
+  margin: auto;
+  padding: 1rem;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accounts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.account-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.account-item:last-child {
+  border-bottom: none;
+}
+
+.account-bank,
+.account-number,
+.account-balance {
+  flex-basis: 33%;
+  text-align: center;
+}
+
+.account-bank {
+  text-align: left;
+}
+
+.account-balance {
+  text-align: right;
+  font-weight: bold;
+}
