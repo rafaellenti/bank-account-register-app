@@ -1,0 +1,29 @@
+<div class="bank-accounts-container">
+    <div class="text-center mb-4">
+        <h2>Bank Accounts</h2>
+        <button class="btn btn-primary mt-3">Cadastrar Conta Bancária</button>
+    </div>
+    <div *ngIf="this.bankAccountList.length == 0" class="d-flex justify-content-center">
+        <p class="fw-bold">Não há contas cadastradas</p>
+    </div>
+    <ng-container *ngIf="this.bankAccountList.length > 0">
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Número da conta</th>
+                    <th scope="col">Agência</th>
+                    <th scope="col">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let account of this.bankAccountList; let i = index" class="text-center">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{ account.accountNumber }}</td>
+                    <td>{{ account.agency }}</td>
+                    <td>{{ account.code }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>
