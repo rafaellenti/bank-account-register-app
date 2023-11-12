@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BankAccount } from '../interfaces/bankAccountInterface';
 import { BankAccountService } from '../services/bankAccountService';
-import { RoutingNavigation } from '../services/routingNavigation';
+import { RoutingNavigationService } from '../services/routingNavigationService';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { RoutingNavigation } from '../services/routingNavigation';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private bankAccountService: BankAccountService, public routingNavigationService: RoutingNavigation) { }
+  constructor(private bankAccountService: BankAccountService, public routingNavigationService: RoutingNavigationService) { }
 
   public bankAccountList: BankAccount[] = [];
 
