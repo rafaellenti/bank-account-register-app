@@ -15,7 +15,7 @@ export const routes: Routes = [
         title: 'Banks List'
     },
     {
-        path: 'register-account/:id',
+        path: 'account-register/:id',
         component: AccountRegisterComponent,
         title: 'Register Account'
     }
