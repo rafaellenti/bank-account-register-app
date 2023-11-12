@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Bank } from '../interfaces/bankInterface';
 import { BankService } from '../services/bankService';
-import { RoutingNavigation } from '../services/routingNavigation';
+import { RoutingNavigationService } from '../services/routingNavigationService';
 import { Subscription } from 'rxjs';
 import { RoutesEnum } from '../enum/routesEnum';
 
@@ -20,7 +20,7 @@ export class BanksListComponent implements OnInit, OnDestroy {
 
   subscription: Subscription | undefined;
 
-  constructor(private bankService: BankService, public routingNavigation: RoutingNavigation) { }
+  constructor(private bankService: BankService, public routingNavigationService: RoutingNavigationService) { }
 
   ngOnInit() {
     this.getBanksList();

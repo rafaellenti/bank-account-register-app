@@ -7,7 +7,7 @@ import { RoutesEnum } from "../enum/routesEnum";
     providedIn: 'root'
 })
 
-export class RoutingNavigation {
+export class RoutingNavigationService {
     constructor(private router: Router) { }
 
     navigateToRoute(route: RoutesEnum, bank?: Bank): void {
