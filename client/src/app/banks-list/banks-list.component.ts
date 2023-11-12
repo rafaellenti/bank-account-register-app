@@ -16,9 +16,11 @@ import { RoutesEnum } from '../enum/routesEnum';
 
 export class BanksListComponent implements OnInit, OnDestroy {
   public banksList: Bank[] = [];
+  public routesEnum = RoutesEnum;
+
   subscription: Subscription | undefined;
 
-  constructor(private bankService: BankService, private router: Router) { }
+  constructor(private bankService: BankService, public routingNavigation: RoutingNavigation) { }
 
   ngOnInit() {
     this.getBanksList();
