@@ -49,4 +49,8 @@ export class BanksListComponent implements OnInit, OnDestroy {
       return nameA.localeCompare(nameB);
     });
   }
+
+  navigateToAccountRegistration(bank: Bank): void {
+    this.router.navigate(['/register-account', bank.code]);
+  }
 } 
