@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BankAccount } from '../interfaces/bankAccountInterface';
 import { BankAccountService } from '../services/bankAccountService';
@@ -11,7 +11,7 @@ import { BankAccountService } from '../services/bankAccountService';
   styleUrl: './home.component.scss'
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   constructor(private bankAccountService: BankAccountService) { }
 
   public bankAccountList: BankAccount[] = [];
