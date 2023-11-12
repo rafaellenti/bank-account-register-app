@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Bank } from '../interfaces/bankInterface';
 import { BankService } from '../services/bankService';
+import { RoutingNavigation } from '../services/routingNavigation';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { RoutesEnum } from '../enum/routesEnum';
 
 @Component({
   selector: 'app-banks-list',
