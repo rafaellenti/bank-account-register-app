@@ -17,6 +17,7 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 
 export class BanksListComponent implements OnInit, OnDestroy {
   public banksList: Bank[] = [];
+  public banksListBackup: Bank[] = [];
   public routesEnum = RoutesEnum;
 
   subscription: Subscription | undefined;
@@ -54,8 +55,29 @@ export class BanksListComponent implements OnInit, OnDestroy {
     });
   }
 
+  setBankSearched(bank: Bank) {
+    this.banksListBackup = this.banksList;
+    this.banksList = [];
+    this.banksList.push(bank);
+  }
+
   onSubmit() {
-    console.log(this.searchCodeForm.value);
+    if (this.searchCodeForm.value.code) {
+      this.subscription = this.bankService.getBank(parseInt(this.searchCodeForm.value.code, 10)).subscribe({
+        next: (response) => {
+          this.setBankSearched(response);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+    }
+  }
+
+  clearFilter() {
+    this.banksList = this.banksListBackup;
+    this.banksListBackup = [];
+    this.searchCodeForm.reset();
   }
 
   ngOnDestroy() {
