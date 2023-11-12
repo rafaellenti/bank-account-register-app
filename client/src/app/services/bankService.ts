@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
 })
 
 export class BankService {
-    private banksListApi = 'https://brasilapi.com.br/api/banks/v1';
+    private bankApi = 'https://brasilapi.com.br/api/banks/v1';
 
     constructor(private http: HttpClient) { }
 
     getBanksList(): Observable<any> {
-        return this.http.get(this.banksListApi);
+        return this.http.get(this.bankApi);
+    }
+
+    getBank(code: number): Observable<any> {
+        return this.http.get(`${this.bankApi}/${code}`);
     }
 }

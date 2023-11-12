@@ -1,7 +1,8 @@
 <div class="bank-accounts-container">
-    <div class="text-center mb-4">
-        <h2>Bank Accounts</h2>
-        <button class="btn btn-primary mt-3">Cadastrar Conta Bancária</button>
+    <div class="text-center mb-4 mt-3">
+        <h3>Contas Bancárias</h3>
+        <button (click)="this.routingNavigationService.navigateToRoute(routesEnum.BanksList)"
+            class="btn btn-primary mt-3">Cadastrar Conta Bancária</button>
     </div>
     <div *ngIf="this.bankAccountList.length == 0" class="d-flex justify-content-center">
         <p class="fw-bold">Não há contas cadastradas</p>
