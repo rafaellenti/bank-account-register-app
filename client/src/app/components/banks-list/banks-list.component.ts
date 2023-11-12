@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Bank } from '../interfaces/bankInterface';
-import { BankService } from '../services/bankService';
-import { RoutingNavigationService } from '../services/routingNavigationService';
+import { Bank } from '../../interfaces/bankInterface';
+import { BankService } from '../../services/bankService';
+import { RoutingNavigationService } from '../../services/routingNavigationService';
 import { Subscription } from 'rxjs';
-import { RoutesEnum } from '../enum/routesEnum';
+import { RoutesEnum } from '../../enum/routesEnum';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({

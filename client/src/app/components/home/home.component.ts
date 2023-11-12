@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BankAccount } from '../interfaces/bankAccountInterface';
-import { BankAccountService } from '../services/bankAccountService';
-import { RoutingNavigationService } from '../services/routingNavigationService';
-import { RoutesEnum } from '../enum/routesEnum';
+import { BankAccount } from '../../interfaces/bankAccountInterface';
+import { BankAccountService } from '../../services/bankAccountService';
+import { RoutingNavigationService } from '../../services/routingNavigationService';
+import { RoutesEnum } from '../../enum/routesEnum';
 
 @Component({
   selector: 'app-home',
