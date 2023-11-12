@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Bank } from "../interfaces/bankInterface";
 import { Router } from "@angular/router";
+import { RoutesEnum } from "../enum/routesEnum";
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,8 @@ import { Router } from "@angular/router";
 export class RoutingNavigation {
     constructor(private router: Router) { }
 
-    navigateToAccountRegistration(bank?: Bank): void {
-
+    navigateToRoute(route: RoutesEnum, bank?: Bank): void {
+        const url = bank ? [route, bank.code] : [route];
+        this.router.navigate(url);
     }
 }
