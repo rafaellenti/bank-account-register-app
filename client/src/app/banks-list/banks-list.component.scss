@@ -9,5 +9,19 @@ tr.clickable-row {
 }
 
 .search-bar {
-  height: 20 px;
+  width: 300px;
+}
+
+.button {
+  width: 140px;
+}
+
+.form-content {
+  display: flex;
+  gap: 10px;
+}
+
+.table-scroll {
+  height: 80vh;
+  overflow: auto;
 }
