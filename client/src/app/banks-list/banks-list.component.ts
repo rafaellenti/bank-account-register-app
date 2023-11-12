@@ -5,11 +5,12 @@ import { BankService } from '../services/bankService';
 import { RoutingNavigationService } from '../services/routingNavigationService';
 import { Subscription } from 'rxjs';
 import { RoutesEnum } from '../enum/routesEnum';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-banks-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './banks-list.component.html',
   styleUrl: './banks-list.component.scss'
 })
@@ -20,14 +21,14 @@ export class BanksListComponent implements OnInit, OnDestroy {
 
   subscription: Subscription | undefined;
 
+  searchCodeForm = new FormGroup({
+    code: new FormControl('', Validators.required)
+  })
+
   constructor(private bankService: BankService, public routingNavigationService: RoutingNavigationService) { }
 
   ngOnInit() {
     this.getBanksList();
-  }
-
-  ngOnDestroy() {
-    this.subscription?.unsubscribe();
   }
 
   getBanksList(): void {
@@ -51,5 +52,13 @@ export class BanksListComponent implements OnInit, OnDestroy {
 
       return nameA.localeCompare(nameB);
     });
+  }
+
+  onSubmit() {
+    console.log(this.searchCodeForm.value);
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 } 

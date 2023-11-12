@@ -2,6 +2,14 @@
     <div class="text-center mb-4">
         <h2>Banks List</h2>
     </div>
+
+    <form [formGroup]="searchCodeForm" (ngSubmit)="onSubmit()" class="mb-4">
+        <div class="form-group searchBar d-flex">
+            <input formControlName="code" type="number" class="form-control" placeholder="Digite o código do banco">
+            <button type="submit" class="btn btn-primary" [disabled]="!searchCodeForm.valid">Pesquisar banco</button>
+        </div>
+    </form>
+
     <ng-container *ngIf="this.banksList">
         <div class="table-responsive">
             <table class="table table-hover">
