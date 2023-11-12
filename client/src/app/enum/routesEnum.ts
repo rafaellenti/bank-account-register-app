@@ -1,5 +1,5 @@
-enum Routes {
+export enum RoutesEnum {
     Home = '',
-    BanksList = '/banks-list',
-    AccountRegister = '/account-register/:id'
+    BanksList = 'banks-list',
+    AccountRegister = 'account-register'
 }
