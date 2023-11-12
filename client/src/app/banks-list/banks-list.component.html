@@ -1,0 +1,17 @@
+<div class="banks-container">
+    <div class="text-center mb-4">
+        <h2>Banks List</h2>
+    </div>
+    <ng-container *ngIf="this.banksList">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <tbody>
+                    <tr *ngFor="let bank of this.banksList; let i = index" class="text-center clickable-row">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{ bank.name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+</div>
