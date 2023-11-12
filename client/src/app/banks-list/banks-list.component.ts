@@ -31,10 +31,22 @@ export class BanksListComponent implements OnInit, OnDestroy {
     this.subscription = this.bankService.getBanksList().subscribe({
       next: (response) => {
         this.banksList = response;
+        this.fixBankList();
       },
       error: (error) => {
         console.log(error);
       }
+    });
+  }
+
+  fixBankList(): void {
+    this.banksList = this.banksList.filter(bank => bank.code != null);
+
+    this.banksList.sort((a: Bank, b: Bank) => {
+      const nameA = a.name ?? '';
+      const nameB = b.name ?? '';
+
+      return nameA.localeCompare(nameB);
     });
   }
 } 
