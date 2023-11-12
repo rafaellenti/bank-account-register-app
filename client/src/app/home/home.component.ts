@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BankAccount } from '../interfaces/bankAccountInterface';
 import { BankAccountService } from '../services/bankAccountService';
 import { RoutingNavigationService } from '../services/routingNavigationService';
+import { RoutesEnum } from '../enum/routesEnum';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,8 @@ import { RoutingNavigationService } from '../services/routingNavigationService';
 })
 
 export class HomeComponent implements OnInit {
+  public routesEnum = RoutesEnum;
+
   constructor(private bankAccountService: BankAccountService, public routingNavigationService: RoutingNavigationService) { }
 
   public bankAccountList: BankAccount[] = [];
