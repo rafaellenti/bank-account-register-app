@@ -11,13 +11,7 @@ export class RoutingNavigationService {
     constructor(private router: Router) { }
 
     navigateToRoute(route: RoutesEnum, bank?: Bank): void {
-        if (bank) {
-            this.router.navigate([route], {
-                state: { bankData: bank }
-            });
-        }
-
-        // const url = bank ? [route, bank.code] : [route];
-        this.router.navigate([route]);
+        const url = bank ? [route, bank.code] : [route];
+        this.router.navigate(url);
     }
 }

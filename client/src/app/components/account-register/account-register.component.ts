@@ -5,11 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-account-register',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <p>
-      account-register works!
-    </p>
-  `,
+  templateUrl: './account-register.component.html',
   styleUrl: './account-register.component.scss'
 })
 export class AccountRegisterComponent {
