@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Bank } from '../../interfaces/bankInterface';
 import { BankService } from '../../services/bankService';
@@ -18,7 +18,7 @@ import { RoutesEnum } from '../../enum/routesEnum';
   styleUrl: './account-register.component.scss'
 })
 
-export class AccountRegisterComponent implements OnInit {
+export class AccountRegisterComponent implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   private codeId: string | null = null;
   public bank: Bank = {
@@ -75,5 +75,9 @@ export class AccountRegisterComponent implements OnInit {
 
   clearFilter() {
     this.accountForm.reset();
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 }
