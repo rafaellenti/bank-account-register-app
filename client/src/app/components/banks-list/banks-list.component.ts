@@ -61,7 +61,7 @@ export class BanksListComponent implements OnInit, OnDestroy {
     this.banksList.push(bank);
   }
 
-  onSubmit() {
+  getBank(): void {
     if (this.searchCodeForm.value.code) {
       this.subscription = this.bankService.getBank(parseInt(this.searchCodeForm.value.code, 10)).subscribe({
         next: (response) => {
@@ -72,6 +72,10 @@ export class BanksListComponent implements OnInit, OnDestroy {
         }
       })
     }
+  }
+
+  onSubmit() {
+    this.getBank();
   }
 
   clearFilter() {
