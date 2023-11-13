@@ -4,11 +4,16 @@ import { Bank } from '../../interfaces/bankInterface';
 import { BankService } from '../../services/bankService';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { BankAccountService } from '../../services/bankAccountService';
+import { BankAccount } from '../../interfaces/bankAccountInterface';
+import { RoutingNavigationService } from '../../services/routingNavigationService';
+import { RoutesEnum } from '../../enum/routesEnum';
 
 @Component({
   selector: 'app-account-register',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './account-register.component.html',
   styleUrl: './account-register.component.scss'
 })
@@ -23,7 +28,12 @@ export class AccountRegisterComponent implements OnInit {
     fullName: ''
   };
 
-  constructor(private bankService: BankService, private route: ActivatedRoute) { }
+  accountForm = new FormGroup({
+    agency: new FormControl('', Validators.required),
+    account: new FormControl('', Validators.required)
+  })
+
+  constructor(private bankService: BankService, private route: ActivatedRoute, private bankAccountService: BankAccountService, private routingNavigationService: RoutingNavigationService) { }
 
   ngOnInit(): void {
     this.getBank();
@@ -44,6 +54,26 @@ export class AccountRegisterComponent implements OnInit {
         }
       })
     }
+  }
 
+  createAccount(): void {
+    if (typeof this.accountForm.value.account === 'string' && typeof this.accountForm.value.agency === 'string') {
+      const bankAccount: BankAccount = {
+        accountNumber: this.accountForm.value.account,
+        agency: this.accountForm.value.agency,
+        code: this.bank.code
+      }
+
+      this.bankAccountService.saveBankAccount(bankAccount);
+      this.routingNavigationService.navigateToRoute(RoutesEnum.Home);
+    }
+  }
+
+  onSubmit(): void {
+    this.createAccount();
+  }
+
+  clearFilter() {
+    this.accountForm.reset();
   }
 }
