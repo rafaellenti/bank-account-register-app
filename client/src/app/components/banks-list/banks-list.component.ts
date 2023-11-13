@@ -75,8 +75,11 @@ export class BanksListComponent implements OnInit, OnDestroy {
   }
 
   clearFilter() {
-    this.banksList = this.banksListBackup;
-    this.banksListBackup = [];
+    if (this.banksListBackup.length > 0) {
+      this.banksList = this.banksListBackup;
+      this.banksListBackup = [];
+    }
+
     this.searchCodeForm.reset();
   }
 
