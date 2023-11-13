@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BanksListComponent } from '../banks-list/banks-list.component';
 import { Bank } from '../../interfaces/bankInterface';
 import { BankService } from '../../services/bankService';
 import { Subscription } from 'rxjs';
