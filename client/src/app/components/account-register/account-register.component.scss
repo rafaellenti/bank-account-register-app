@@ -1,0 +1,20 @@
+.account-register-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.row-content {
+  display: flex;
+  justify-content: space-between;
+  min-width: max-content;
+}
+
+.label {
+  margin-right: 10px;
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+.input {
+  width: 150px;
+}
